@@ -2,7 +2,7 @@ package section5;
 
 public class PositiveNegativeZero {
     public static void main(String[] args) {
-        checkNumber(5);
+        checkNumber(10);
         checkNumber(-1);
         checkNumber(0);
     }
