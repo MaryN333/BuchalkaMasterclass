@@ -39,6 +39,4 @@ public class Main {
         bank1.addTransaction("N Mary", 100);   //Customer N Mary not found
         bank1.printCustomer("N Mary");          //Customer N Mary not found
     }
-
-
 }
