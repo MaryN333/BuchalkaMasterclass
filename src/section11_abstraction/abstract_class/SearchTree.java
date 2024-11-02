@@ -48,9 +48,6 @@ public class SearchTree implements NodeList {
 
     @Override
     public boolean removeItem(ListItem item) {
-        if (item != null) {
-            System.out.println("Deleting item " + item.getValue());
-        }
         ListItem currentItem = this.root;
         ListItem parentItem = currentItem;
 

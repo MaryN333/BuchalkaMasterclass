@@ -21,10 +21,10 @@ public class MyLinkedList implements NodeList {
         ListItem currentItem = this.root;
         while (currentItem != null) {
             int comparison = currentItem.compareTo(item);
-            if (comparison == 0) {  // Если есть в списке, возвр false
+            if (comparison == 0) {  // If item is in the list, return false
                 return false;
             } else if (comparison > 0){
-                //currentItem больше, вставить item нужно перед currentItem
+                // currentItem is greater, item needs to be inserted before currentItem
                 item.setNext(currentItem);
                 if (currentItem.previous() != null) {
                     item.setPrevious(currentItem.previous());
@@ -34,7 +34,7 @@ public class MyLinkedList implements NodeList {
                 }
                 currentItem.setPrevious(item);
                 return true;
-            } else if (currentItem.next() == null) {  // Вставка в конец
+            } else if (currentItem.next() == null) {  // Insert at the end
                 currentItem.setNext(item);
                 item.setPrevious(currentItem);
                 return true;
@@ -46,7 +46,6 @@ public class MyLinkedList implements NodeList {
 
     @Override
     public boolean removeItem(ListItem item) {
-        // System.out.println("Deleting item "+ item.getValue());
         if (this.root == null) {
             return false;
         }
@@ -55,7 +54,7 @@ public class MyLinkedList implements NodeList {
             int comparison = currentItem.compareTo(item);
             if (comparison == 0) {
                 if (currentItem == this.root) {
-                    // Если удаляем корень, устанавливаем новый корень
+                    //If we delete the root, we  set a new root
                     if (currentItem.next() != null){
                         this.root = currentItem.next();
                         this.root.setPrevious(null);
@@ -64,9 +63,9 @@ public class MyLinkedList implements NodeList {
                     }
                 } else {
                     if (currentItem.next() != null) {
-                        // Устанавливаем ссылку на следующий элемент для предыдущего элемента
+                        // for the previous element we set a link to the next element
                         currentItem.previous().setNext(currentItem.next());
-                        // Устанавливаем ссылку на предыдущий элемент для следующего элемента
+                        // for the next element we set a link to the previous element
                         currentItem.next().setPrevious(currentItem.previous());
                     } else {
                         currentItem.previous().setNext(null);
